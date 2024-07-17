@@ -6,14 +6,17 @@ function App() {
   const [song, setSong] = useState(" ")
   const [singer, setSinger] = useState(" ")
   const [lyrics, setLyrics] = useState("")
+  const [error, setError] = useState("")
 
   // api ---> api.lyrics.ovh/v1/${singer}/${song}
-   const api = `api.lyrics.ovh/v1/${singer}/${song}`
 
   const handleSubmit = () => {
-
-    if(singer == "" || song == ""){
-      setLyrics(" ")
+  try {
+        
+    if(!singer || !song){
+      alert("Please enter the name of sing and singer !!")
+      setSinger("")
+      setSong("")
     }
 
     else{
@@ -27,6 +30,14 @@ function App() {
         }
       )
     }
+      } 
+    
+      catch (error) {
+        console.error(error)
+        setError(error.message)
+        throw new Error("API ENDPOINT ERROR", error.message)
+      }
+
     }
 
   return (
@@ -66,7 +77,7 @@ function App() {
         </div>
         <a href="#" title="Get quote now"
             class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-            role="button">Get it now
+            role="button"> Find
         </a>
     </div>
 
@@ -75,11 +86,16 @@ function App() {
 </div>
 
 
-<div className='flex-col h-[30em] w-[40em] bg-slate-800 overflow-auto rounded-xl'>
-  <h2 className='flex justify-center text-white text-2xl mt-4'>
+<div className='flex-col h-[30em] w-[40em] bg-slate-800 overflow-x-auto overflow-y-auto rounded-xl'>
+  <h2 className='flex justify-center text-white text-3xl mt-4'>
     Lyrics
   </h2>
-  <pre className='text-white mt-4 flex justify-center font-mono'>
+  <pre className='text-white mt-4 w-[40em] overflow-x-auto flex justify-center font-mono p-4'>
+    {error && (
+      <div className='flex justify-center text-red text-xl'>
+        {error}
+      </div>
+    )}
     {lyrics}
   </pre>
 </div>
