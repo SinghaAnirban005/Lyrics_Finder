@@ -8,7 +8,7 @@ function App() {
   const [lyrics, setLyrics] = useState("")
   const [error, setError] = useState("")
 
-  // api ---> api.lyrics.ovh/v1/${singer}/${song}
+  // API ---> api.lyrics.ovh/v1/${singer}/${song}
 
   const handleSubmit = () => {
   try {
@@ -42,42 +42,42 @@ function App() {
 
   return (
    
-   <div className='flex justify-center bg-slate-900 min-h-[100vh] '>
-    <div className='flex-col mt-[2em]'>
+   <div className='flex justify-center  bg-slate-900 h-[100vh] w-[100vw]'>
+    <div className='flex-col mt-[4vmax]'>
 
-      <div className='flex justify-center'>
-          <h1 className='font-bold text-3xl text-white'>🎸 MUSIX MATCH 🎶</h1>
+      <div className='flex justify-center px-[2vw]'>
+          <h1 className='font-bold text-[8vmin] text-white '>🎸 MUSIX MATCH 🎶</h1>
       </div>
 
 
-<div className='flex mt-[2em] justify-between items-center w-[80em] px-4'>
+<div className='flex flex-wrap justify-center mt-[2em] lg:mt-[4em] md:mt-[3em] sm:mt-[2em]  items-center w-[100vw] px-[4vw] md:flex-wrap sm:flex-wrap lg:flex sm:justify-center md:justify-center lg:justify-between xl:justify-between'>
 
-  <div className='flex-col mt-[2em]'>
+  <div className='flex-col mt-[4vmax] sm:mt-[3vw] md:mt-[4vw] lg:mt-[4vw] mr-[2vw]'>
 
-  <div className='flex justify-center items-center'>
+  <div className='flex mb-[1vw] flex-wrap justify-center items-center sm:flex-wrap md:flex-wrap lg:flex xl:flex'>
 
-  <label className='text-white mr-4'>
+  <label className='text-white mr-[4vw]'>
     Enter name of Song 
   </label>
-<input type="text" value={song} onChange={(e) => setSong(e.target.value)} placeholder='Enter name of Song' className='ml-2 border-none rounded-xl h-10' />
+<input type="text" value={song} onChange={(e) => setSong(e.target.value)} placeholder='Enter name of Song' className='ml-2 border-none rounded-xl h-[4vw] w-[12em]' />
 </div>
 
-<div className='flex justify-center mt-4 items-center'>
+<div className='flex mb-[3vw] flex-wrap justify-center items-center sm:flex-wrap md:flex-wrap lg:flex xl:flex'>
   
-<label className='text-white mr-4'>
+<label className='text-white mr-[4vw]'>
     Enter name of Singer 
   </label>
-<input type="text" value={singer} onChange={(e) => setSinger(e.target.value)} placeholder='Enter name of singer' className='flex border-none rounded-xl h-10' />
+<input type="text" value={singer} onChange={(e) => setSinger(e.target.value)} placeholder='Enter name of singer' className='flex border-none rounded-xl h-[4vw] w-[12em]' />
 </div>
-<div className='flex mt-6'>
+<div className='flex mt-[2vw] justify-center sm:justify-center md:justify-center lg:justify-start xl:justify-start'>
     
-    <div class="relative inline-flex group " onClick={handleSubmit}>
+    <div class="relative inline-flex group" onClick={handleSubmit}>
         <div
             class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
         </div>
         <a href="#" title="Get quote now"
-            class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-            role="button"> Find
+            class="relative inline-flex items-center justify-center px-[3vw] py-[2vmin] text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-lg sm:rounded-lg md:rounded-xl lg:rounded-xl xl:rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+            role="button"> <span className='text-sm sm:text-md md:text-lg lg:text-xl xl:text-xl'>Find</span>
         </a>
     </div>
 
@@ -86,7 +86,7 @@ function App() {
 </div>
 
 
-<div className='flex-col h-[30em] w-[40em] bg-slate-800 overflow-x-auto overflow-y-auto rounded-xl'>
+<div className='flex-col h-[50vh] w-[90vw] sm:w-[90vw] md:w-[90vw] lg:w-[50vw] xl:w-[50vw] bg-slate-800 overflow-x-auto overflow-y-auto rounded-xl mt-[8vmax]'>
   <h2 className='flex justify-center text-white text-3xl mt-4'>
     Lyrics
   </h2>
